@@ -34,6 +34,10 @@ $(document).ready(function() {
     function initiateCheckout(jsonResponse) {
         var checkout = chckt.checkout(jsonResponse, '.checkout', hostedFieldStyle);
     }
+    
+    chckt.hooks.beforeComplete = function(pNode, pHookData, pData){
+        console.log(JSON.stringify(pData));
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
