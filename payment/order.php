@@ -42,7 +42,7 @@ $reference = 'order_id';
 $shopperReference = 'example_shopper';
 
 /** @var $shopperLocale - The shopper locale */
-$shopperLocale = 'de_DE';
+$shopperLocale = 'en_DE';
 
 /** @var $countryCode - The countrycode influences the returned payment methods */
 $countryCode = 'DE';
