@@ -53,6 +53,9 @@ $channel = 'Web';
 /** @var $sessionValidity - the time the offer will be valid for */
 $sessionValidity = date('Y-m-d\TH:i:s\Z', strtotime('+1 hour'));
 
+/** @var $shopperEmail - The shoppers email, required for some payment methods */
+$shopperEmail = 'leslie.cruz@adyen.com';
+
 
 return [
     'amount' => $amount,
@@ -62,4 +65,5 @@ return [
     'shopperReference' => $shopperReference,
     'shopperLocale' => $shopperLocale,
     'reference' => $reference,
+    'shopperEmail' => $shopperEmail,
 ];
