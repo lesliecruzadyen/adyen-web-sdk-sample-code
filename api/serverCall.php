@@ -48,6 +48,7 @@ function requestPaymentData($order, $server, $authentication)
         'shopperReference' => $order['shopperReference'],
         'shopperLocale' => $order['shopperLocale'],
         'reference' => $order['reference'],
+        'shopperEmail' => $order['shopperEmail'],
 
         /** All server specific settings can be found in config/server.php */
 
