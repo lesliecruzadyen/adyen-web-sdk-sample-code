@@ -61,7 +61,7 @@ return [
     'amount' => $amount,
     'channel' => $channel,
     'countryCode' => $countryCode,
-    'html' => true,
+    'html' => false,
     'shopperReference' => $shopperReference,
     'shopperLocale' => $shopperLocale,
     'reference' => $reference,
