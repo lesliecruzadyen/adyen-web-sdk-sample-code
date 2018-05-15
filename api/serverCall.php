@@ -38,74 +38,27 @@ $server = include('../config/server.php');
 /** Set up the cURL call to  adyen */
 function requestPaymentData($order, $server, $authentication)
 {
- $request = array(
-        'amount' => array(
-             'value' => '10',
-             'currency' => 'EUR'
-         ),
-         // 'apiVersion' => '1234',
-        'sdkVersion' => $sdkVersion,
-        'countryCode' => 'NL',
-        'shopperLocale' => 'NL',
-        'merchantAccount' => $merchantAccount,
-        'returnUrl' => 'http://localhost:3000/paymentSuccess.php',
-        'reference' => 'Checkout php ' . $_ENV['LOGNAME'] .' '.date('YmdHi'),
-        'sessionValidity' => date('Y-m-d\TH:i:s\Z', strtotime('+2 days')),
-        'channel' => 'Web',
-        'shopperReference' => 'misterman',
-        'shopperIP' => $_SERVER['REMOTE_ADDR'],
-        'shopperEmail' => 'youremail@email.com',
-        // 'allowedPaymentMethods' => array ("scheme"),
-        // 'blockedPaymentMethods' => array ("scheme"),
-        'shopperName' => array(
-            'firstName' => 'Testperson-se',
-            'lastName' => 'Approved',
-            // 'gender' => 'MALE'
-        ),
-        'dateOfBirth' => '1985-04-03',
-        'billingAddress' => array(
-            'city' => 'Ankeborg',
-            'country' => 'SE',
-            'houseNumberOrName' => '1',
-            'postalCode' => '12345',
-            'street' => 'Stårgatan'
-        ),
-        'socialSecurityNumber' => '410321-9202',
-        'lineItems' => array(
-            array(
-                'id' => '1',
-                'description' => 'Test Item 1',
-                'amountExcludingTax' => 10000,
-                'amountIncludingTax' => 11800,
-                'taxAmount' => 1800,
-                'taxPercentage' => 1800,
-                'quantity' => 1,
-                'taxCategory' => 'High'
-            ),
-            array(
-                'id' => '2',
-                'description' => 'Test Item 2',
-                'amountExcludingTax' => 100000,
-                'amountIncludingTax' => 103000,
-                'taxAmount' => 3000,
-                'taxPercentage' => 300,
-                'quantity' => 5,
-                'taxCategory' => 'Low'
-            ),
-            array(
-                'id' => '3',
-                'description' => 'Test Item 3',
-                'amountExcludingTax' => 1000,
-                'amountIncludingTax' => 1000,
-                'taxAmount' => 0,
-                'taxPercentage' => 0,
-                'quantity' => 1,
-                'taxCategory' => 'Zero'
-            )
-        ),
-        'telephoneNumber' => '0765260000',
-        // 'html' => 'true',
-        // 'token' => 'eyJhcGlWZXJzaW9uIjoiMSJ9',// apiVersion 1 // Comment out to get default: apiVersion 2 (separate fields in inputDetails) or have value: 'eyJhcGlWZXJzaW9uIjoiMiJ9'
+    $request = array(
+        /** All order specific settings can be found in payment/order.php */
+
+        'amount' => $order['amount'],
+        'channel' => $order['channel'],
+        'countryCode' => $order['countryCode'],
+        'html' => $order['html'],
+        'shopperReference' => $order['shopperReference'],
+        'shopperLocale' => $order['shopperLocale'],
+        'reference' => $order['reference'],
+        'shopperEmail' => $order['shopperEmail'],
+
+        /** All server specific settings can be found in config/server.php */
+
+        'origin' => $server['origin'],
+        'shopperIP' => $server['shopperIP'],
+        'returnUrl' => $server['returnURL'],
+
+        /** All merchant/authentication specific settings can be found in config/authentication.php */
+
+        'merchantAccount' => $authentication['merchantAccount']
     );
 
     $setupString = json_encode($request);
