@@ -31,7 +31,7 @@ include ('config/timezone.php');
     <meta name="robots" content="noindex"/>
     <title>Example PHP checkout</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://checkoutshopper-test.adyen.com/checkoutshopper/assets/js/sdk/checkoutSDK.1.3.0.min.js"></script>
+    <script type="text/javascript" src="https://checkoutshopper-test.adyen.com/checkoutshopper/assets/js/sdk/checkoutSDK.1.0.min.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="body">
