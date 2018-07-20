@@ -56,8 +56,6 @@ $sessionValidity = date('Y-m-d\TH:i:s\Z', strtotime('+1 hour'));
 /** @var $shopperEmail - The shoppers email, required for some payment methods */
 $shopperEmail = 'leslie.cruz@adyen.com';
 
-$enableOneClick = false;
-
 
 return [
     'amount' => $amount,
@@ -68,5 +66,5 @@ return [
     'shopperLocale' => $shopperLocale,
     'reference' => $reference,
     'shopperEmail' => $shopperEmail,
-    'enableOneClick' => $enableOneClick,
+    'enableOneClick' => false,
 ];
