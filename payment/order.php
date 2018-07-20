@@ -27,7 +27,7 @@
 $value = 120;
 
 /** @var  $currencyCode - Change this to any currency you support: https://docs.adyen.com/developers/currency-codes */
-$currencyCode = 'EUR';
+$currencyCode = 'USD';
 
 /** @array $amount - Amount is a combination of value and currency */
 $amount = [
@@ -42,10 +42,10 @@ $reference = 'order_id';
 $shopperReference = 'example_shopper';
 
 /** @var $shopperLocale - The shopper locale */
-$shopperLocale = 'en_NL';
+$shopperLocale = 'en_US';
 
 /** @var $countryCode - The countrycode influences the returned payment methods */
-$countryCode = 'NL';
+$countryCode = 'US';
 
 /** @var $channel - the channel influences the returned payment methods (the same server can be used for iOS, Android and Point of sale */
 $channel = 'Web';
@@ -55,6 +55,8 @@ $sessionValidity = date('Y-m-d\TH:i:s\Z', strtotime('+1 hour'));
 
 /** @var $shopperEmail - The shoppers email, required for some payment methods */
 $shopperEmail = 'leslie.cruz@adyen.com';
+
+$storeDetails = 'false';
 
 
 return [
@@ -66,4 +68,5 @@ return [
     'shopperLocale' => $shopperLocale,
     'reference' => $reference,
     'shopperEmail' => $shopperEmail,
+    'storeDetails' => $storeDetails,
 ];
